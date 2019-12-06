@@ -6,7 +6,7 @@ import (
 	"adventofcode2019/utils"
 )
 
-func execute_comp(lines []int, position int) int {
+func executeComp(lines []int, position int) int {
 	var op = lines[position]
 	if op == 99 {
 		return lines[0]
@@ -16,11 +16,11 @@ func execute_comp(lines []int, position int) int {
 	var dest = lines[position+3]
 	if (op == 1) {
 		lines[dest] = lines[operand1] + lines[operand2]
-		return execute_comp(lines, position + 4)
+		return executeComp(lines, position + 4)
 	}
 	if op == 2 {
 		lines[dest] = lines[operand1] * lines[operand2]
-		return execute_comp(lines, position + 4)
+		return executeComp(lines, position + 4)
 	}
 	
 	return 0
@@ -31,7 +31,7 @@ func findParams(lines[] int, noun int, verb int) int {
 
 	lines2[1] = noun
 	lines2[2] = verb
-	return execute_comp(lines2, 0)
+	return executeComp(lines2, 0)
 }
 
 func main() {
